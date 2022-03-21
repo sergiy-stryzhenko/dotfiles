@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Sergiy Stryzhenko
+	email = sztrizh@gmail.com
+[core]
+	editor = nvim
+[push]
+	default = current
+[init]
+	templatedir = ~/.git_template
+	defaultBranch = master
