@@ -46,7 +46,6 @@ set showmatch
 set hlsearch " Search the word under cursor on *
 set incsearch
 set ignorecase
-
 set number
 set relativenumber
 
@@ -110,6 +109,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let g:tokyonight_transparent = 1
+let g:tokyonight_colors = {'comment': '#60a0a0'}
 colorscheme tokyonight
 
 lua require'colorizer'.setup()
