@@ -90,7 +90,7 @@ Plug 'tpope/vim-dispatch'
 
 Plug 'liuchengxu/vim-which-key'
 
-Plug 'sainnhe/sonokai'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 let g:mkdp_browser = 'Brave Browser'
@@ -109,13 +109,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-colorscheme sonokai
-highlight Normal guibg=None ctermbg=None
-highlight NonText guibg=None ctermbg=None
-highlight EndOfBuffer guibg=None ctermbg=None
+let g:tokyonight_transparent = 1
+colorscheme tokyonight
 
 lua require'colorizer'.setup()
 
@@ -198,5 +193,4 @@ configs.setup {
 		enable = true,
 	}
 }
-
 EOF
