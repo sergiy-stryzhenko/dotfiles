@@ -148,6 +148,7 @@ let g:which_key_map_leader.w = {
       \ 'name' : '+vimwiki',
       \ }
 let g:which_key_map_localleader = {}
+let g:which_key_map_localleader.c = ['COQnow', 'completion']
 
 " Disable arrow keys
 noremap <Up> <Nop>
