@@ -87,8 +87,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'tpope/vim-dispatch'
 
-Plug 'liuchengxu/vim-which-key'
-
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
