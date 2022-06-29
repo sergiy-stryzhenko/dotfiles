@@ -183,7 +183,12 @@ end)
 -- configure treesitter
 local configs = require'nvim-treesitter.configs'
 configs.setup {
-	ensure_installed = "maintained",
+	ensure_installed = {
+		'vim', 'lua',
+		'python', 'cpp',
+		'latex', 'bibtex',
+		'markdown',
+	},
 	sync_install = false,
 	highlight = {
 		enable = true,
