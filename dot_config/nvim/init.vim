@@ -143,6 +143,7 @@ let g:which_key_map_leader.f = {
       \ 'k' : ['Maps', 'fzf-keymaps'],
       \ 's' : [":call fzf#run({'sink': 'split'})", 'open-in-split'],
       \ 'v' : [":call fzf#run({'sink': 'vsplit'})", 'open-in-vsplit'],
+	  \ 'o' : [":call fzf#run({'sink': 'silent !open'})", 'open-in-macos'],
       \ }
 let g:which_key_map_leader.w = {
       \ 'name' : '+vimwiki',
