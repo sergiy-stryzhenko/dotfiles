@@ -186,7 +186,7 @@ local configs = require'nvim-treesitter.configs'
 configs.setup {
 	ensure_installed = {
 		'vim', 'lua',
-		'python', 'cpp',
+		'python', 'cpp', 'go',
 		'latex', 'bibtex',
 		'markdown',
 	},
