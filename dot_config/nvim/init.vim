@@ -62,10 +62,13 @@ if empty(glob("~/.config/nvim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_markdown_link_ext = 1
+" Plug 'vimwiki/vimwiki'
+" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_markdown_link_ext = 1
+Plug 'jakewvincent/mkdnflow.nvim'
+
+Plug 'mickael-menu/zk-nvim'
 
 Plug 'rlue/vim-barbaric' " for switching keyboard layouts
 let g:XkbSwitchEnabled = 0
@@ -147,6 +150,9 @@ let g:which_key_map_leader.f = {
       \ }
 let g:which_key_map_leader.w = {
       \ 'name' : '+vimwiki',
+      \ 'w': [':edit ~/vimwiki/index.md', 'open-here'],
+      \ 's': [':split ~/vimwiki/index.md', 'open-in-split'],
+      \ 'v': [':vsplit ~/vimwiki/index.md', 'open-in-vsplit'],
       \ }
 let g:which_key_map_localleader = {}
 let g:which_key_map_localleader.c = ['COQnow', 'completion']
@@ -198,4 +204,23 @@ configs.setup {
 		enable = false,
 	}
 }
+
+-- configure zk-nvim
+require("zk").setup({
+	picker = "fzf",
+})
+
+-- configure mkdnflow
+require('mkdnflow').setup({
+	modules = {
+		folds = false,
+	},
+	perspective = {
+		priority = 'current',
+	},
+	mappings = {
+		MkdnFoldSection = false,
+		MkdnUnfoldSection = false,
+	},
+})
 EOF
