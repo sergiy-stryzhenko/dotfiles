@@ -84,8 +84,15 @@ return require('packer').startup(function(use)
 	})
 
 	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
+
+
+	use {
 		'jakewvincent/mkdnflow.nvim',
-		rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
 		config = function()
 			require('mkdnflow').setup({
 				modules = {
