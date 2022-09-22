@@ -1,22 +1,29 @@
 local M = {}
 
-function source_config()
-	vim.notify("Updating config...")
-	vim.cmd[[luafile ~/.config/nvim/init.lua]]
-	vim.notify("Config updated, compiling Packer")
-	vim.cmd[[PackerCompile]]
-	vim.notify("Compiled Packer")
-end
-
 function M.setup()
 	local wk = require("which-key")
 	wk.setup{
 	}
 
 	wk.register({
+		b = {
+			name = "buffer",
+			['['] = { "<cmd>:bp<cr>", "Previous buffer" },
+			[']'] = { "<cmd>:bn<cr>", "Next buffer" },
+			d = { "<cmd>:bd<cr>", "Close buffer" },
+		},
 		c = {
-			source_config,
-			"source-config"
+			name = "code",
+		},
+		g = {
+			name = "git",
+			s = { "<cmd>Neogit<cr>", "status" },
+		},
+		i = {
+			name = "insert",
+		},
+		n = {
+			name = "notes",
 		},
 		o = {
 			name = "open",
@@ -45,11 +52,19 @@ function M.setup()
 				},
 			},
 		},
-		s = { "<cmd>split %<cr>", "split" },
-		v = { "<cmd>vsplit %<cr>", "vsplit" },
-		g = {
-			name = "git",
-			s = { "<cmd>Neogit<cr>", "status" },
+		p = {
+			name = "project",
+		},
+		s = {
+			name = "search",
+		},
+		t = {
+			name = "toggle",
+		},
+		w = {
+			name = "window",
+			s = { "<cmd>split %<cr>", "split" },
+			v = { "<cmd>vsplit %<cr>", "vsplit" },
 		}
 	}, { prefix = "<leader>" })
 end
