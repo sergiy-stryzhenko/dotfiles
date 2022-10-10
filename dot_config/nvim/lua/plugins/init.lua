@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
 				mappings = {
 					MkdnFoldSection = false,
 					MkdnUnfoldSection = false,
+					MkdnTableNextCell = false,
 				},
 			})
 		end
@@ -141,6 +142,7 @@ return require('packer').startup(function(use)
 		config = function()
 			local lsp = require('lsp-zero')
 			lsp.preset('recommended')
+
 			lsp.nvim_workspace()
 			lsp.setup()
 		end,
