@@ -24,7 +24,12 @@ return require('packer').startup(function(use)
 		'folke/tokyonight.nvim',
 		branch = 'main',
 		config = function()
-			vim.g.tokyonight_transparent = true
+			require('tokyonight').setup({
+				transparent = true,
+				on_colors = function (colors)
+					colors.comment = "#9aa5ce"
+				end
+			})
 			vim.cmd[[colorscheme tokyonight]]
 		end
 	}
