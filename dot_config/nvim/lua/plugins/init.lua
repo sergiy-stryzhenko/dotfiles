@@ -83,6 +83,11 @@ return require('packer').startup(function(use)
 		config = function()
 			vim.g.mkdp_browser = 'Brave Browser'
 			vim.g.mkdp_refresh_slow = 1
+
+			vim.keymap.set(
+				'n', '<leader>tp', '<plug>MarkdownPreviewToggle',
+				{desc = 'Toggle Markdown preview'}
+			)
 		end,
 	})
 
