@@ -66,6 +66,7 @@ return require('packer').startup(function(use)
 				ensure_installed = {
 					'lua',
 					'python',
+					'markdown',
 				},
 				highlight = {
 					enable = true,
