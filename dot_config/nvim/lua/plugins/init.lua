@@ -81,9 +81,7 @@ return require('lazy').setup{
 
 	{
 		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
+		build = "cd app && npm install && git reset --hard",
 		ft = { "markdown" },
 		config = function()
 			vim.g.mkdp_browser = 'Brave Browser'
