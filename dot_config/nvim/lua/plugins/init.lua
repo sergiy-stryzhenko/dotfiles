@@ -132,30 +132,21 @@ return require('lazy').setup{
 	},
 
 	{
-		'VonHeikemen/lsp-zero.nvim',
+		'neovim/nvim-lspconfig',
 		dependencies = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},
-			{'williamboman/mason.nvim'},
-			{'williamboman/mason-lspconfig.nvim'},
+			{ 'williamboman/mason.nvim', config = true },
+			'williamboman/mason-lspconfig.nvim',
+			{ 'j-hui/fidget.nvim', opts = {} },
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},
+			-- For working with Neovim configs in Lua
+			'folke/neodev.nvim',
+			{'hrsh7th/cmp-nvim-lsp'},
 			{'hrsh7th/cmp-buffer'},
 			{'hrsh7th/cmp-path'},
-			{'saadparwaiz1/cmp_luasnip'},
-			{'hrsh7th/cmp-nvim-lsp'},
-			{'hrsh7th/cmp-nvim-lua'},
-
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip',
+			'hrsh7th/nvim-cmp',
 		},
-		config = function()
-			local lsp = require('lsp-zero')
-			lsp.preset('recommended')
-
-			lsp.nvim_workspace()
-			lsp.setup()
-		end,
+		config = require'plugins/lsp'.setup,
 	},
 }
