@@ -48,13 +48,6 @@ function M.setup()
 		function (server_name)
 			local options = {
 			}
-			if server_name == 'zk' then
-				require('zk').setup({
-					lsp = {
-						config = vim.tbl_extend("force", server.get_default_options(), options)
-					}
-				})
-			end
 			require("lspconfig")[server_name].setup(options)
 		end,
 		-- Next, you can provide a dedicated handler for specific servers.
