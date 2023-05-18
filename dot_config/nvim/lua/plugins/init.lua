@@ -149,4 +149,13 @@ return require('lazy').setup{
 		},
 		config = require'plugins/lsp'.setup,
 	},
+
+	{
+		'mickael-menu/zk-nvim',
+		config = function ()
+			require('zk').setup({
+				-- picker = 'fzf',
+			})
+		end
+	},
 }

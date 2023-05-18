@@ -46,7 +46,16 @@ function M.setup()
 	}
 	mason_lspconfig.setup_handlers {
 		function (server_name)
-			require("lspconfig")[server_name].setup {}
+			local options = {
+			}
+			if server_name == 'zk' then
+				require('zk').setup({
+					lsp = {
+						config = vim.tbl_extend("force", server.get_default_options(), options)
+					}
+				})
+			end
+			require("lspconfig")[server_name].setup(options)
 		end,
 		-- Next, you can provide a dedicated handler for specific servers.
 		-- For example, a handler override for the `rust_analyzer`:
