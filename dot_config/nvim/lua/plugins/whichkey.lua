@@ -24,6 +24,11 @@ function M.setup()
 		},
 		n = {
 			name = "notes",
+			b = {"<cmd>ZkBacklinks<cr>", "backlinks"},
+			l = {"<cmd>ZkLinks<cr>", "links"},
+			n = {"<cmd>ZkNew<cr>", "new note"},
+			o = {"<cmd>ZkNotes<cr>", "open a note"},
+			t = {"<cmd>ZkTags<cr>", "open by tag"},
 		},
 		o = {
 			name = "open",
