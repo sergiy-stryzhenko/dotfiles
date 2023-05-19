@@ -160,7 +160,7 @@ return require('lazy').setup{
 		'mickael-menu/zk-nvim',
 		config = function ()
 			require('zk').setup({
-				-- picker = 'fzf',
+				picker = 'telescope',
 			})
 		end
 	},
