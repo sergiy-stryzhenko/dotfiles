@@ -80,6 +80,12 @@ return require('lazy').setup{
 	'ibhagwan/fzf-lua',
 
 	{
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+
+	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install && git reset --hard",
 		ft = { "markdown" },
