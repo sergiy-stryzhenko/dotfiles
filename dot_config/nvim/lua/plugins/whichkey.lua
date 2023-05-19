@@ -29,14 +29,24 @@ function M.setup()
 			name = "open",
 			w = { "<cmd>edit ~/vimwiki/index.md<cr>", "wiki" },
 			f = {
-				name = "fzf",
-				b = { require('fzf-lua').buffers, "buffers" },
-				c = { require('fzf-lua').files, "current" },
+				name = "fuzzy-find",
+				b = {
+					require'telescope.builtin'.buffers,
+					"buffers",
+				},
+				c = {
+					require'telescope.builtin'.find_files,
+					"in current dir",
+				},
+				g = {
+					require'telescope.builtin'.live_grep,
+					"grep",
+				},
 				h = {
 					function()
-						require('fzf-lua').files{cwd='~'}
+						require('telescope.builtin').find_files{search_dirs={'~'}}
 					end,
-					"home"
+					"in home dir"
 				},
 				r = {
 					function()
@@ -46,9 +56,9 @@ function M.setup()
 				},
 				v = {
 					function()
-						require('fzf-lua').files{cwd='/Volumes'}
+						require('telescope.builtin').find_files{search_dirs={'/Volumes'}}
 					end,
-					"volumes"
+					"in /Volumes"
 				},
 			},
 		},
