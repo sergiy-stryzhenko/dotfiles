@@ -14,6 +14,7 @@ function M.setup()
 		},
 		c = {
 			name = "code",
+			a = { vim.lsp.buf.code_action, "Code actions" },
 		},
 		g = {
 			name = "git",
