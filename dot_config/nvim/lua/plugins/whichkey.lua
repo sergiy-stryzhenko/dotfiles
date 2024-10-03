@@ -5,84 +5,51 @@ function M.setup()
 	wk.setup{
 	}
 
-	wk.register({
-		b = {
-			name = "buffer",
-			['['] = { "<cmd>:bp<cr>", "Previous buffer" },
-			[']'] = { "<cmd>:bn<cr>", "Next buffer" },
-			d = { "<cmd>:bd<cr>", "Close buffer" },
-		},
-		c = {
-			name = "code",
-			a = { vim.lsp.buf.code_action, "Code actions" },
-		},
-		g = {
-			name = "git",
-			s = { "<cmd>Neogit<cr>", "status" },
-		},
-		i = {
-			name = "insert",
-		},
-		n = {
-			name = "notes",
-			b = {"<cmd>ZkBacklinks<cr>", "backlinks"},
-			l = {"<cmd>ZkLinks<cr>", "links"},
-			n = {"<cmd>ZkNew<cr>", "new note"},
-			o = {"<cmd>ZkNotes<cr>", "open a note"},
-			t = {"<cmd>ZkTags<cr>", "open by tag"},
-		},
-		o = {
-			name = "open",
-			w = { "<cmd>edit ~/vimwiki/index.md<cr>", "wiki" },
-			f = {
-				name = "fuzzy-find",
-				b = {
-					require'telescope.builtin'.buffers,
-					"buffers",
-				},
-				c = {
-					require'telescope.builtin'.find_files,
-					"in current dir",
-				},
-				g = {
-					require'telescope.builtin'.live_grep,
-					"grep",
-				},
-				h = {
-					function()
-						require('telescope.builtin').find_files{search_dirs={'~'}}
-					end,
-					"in home dir"
-				},
-				r = {
-					function()
-						require('fzf-lua').files{cwd = '/'}
-					end,
-					"root"
-				},
-				v = {
-					function()
-						require('telescope.builtin').find_files{search_dirs={'/Volumes'}}
-					end,
-					"in /Volumes"
-				},
-			},
-		},
-		p = {
-			name = "project",
-		},
-		s = {
-			name = "search",
-		},
-		t = {
-			name = "toggle",
-		},
-		w = {
-			name = "window",
-			s = { "<cmd>split %<cr>", "split" },
-			v = { "<cmd>vsplit %<cr>", "vsplit" },
-		}
-	}, { prefix = "<leader>" })
+	wk.add({
+		{"<leader>b", group = "buffer"},
+		{"<leader>b[", "<cmd>bp<cr>", desc = "Previous buffer"},
+		{"<leader>b]", "<cmd>:bn<cr>", desc = "Next buffer" },
+		{"<leader>bd", "<cmd>:bd<cr>", desc = "Close buffer"},
+
+		{"<leader>c", group = "code"},
+		{"<leader>ca", vim.lsp.buf.code_action, desc = "Code actions"},
+
+		{"<leader>g", group = "git"},
+		{"<leader>gs", "<cmd>Neogit<cr>", desc = "git status"},
+
+		{"<leader>i", group = "insert"},
+
+		{"<leader>n", group = "notes"},
+		{"<leader>nb", "<cmd>ZkBacklinks<cr>", desc = "backlinks"},
+		{"<leader>nl", "<cmd>ZkLinks<cr>", desc = "links"},
+		{"<leader>nn", "<cmd>ZkNew<cr>", desc = "new note"},
+		{"<leader>no", "<cmd>ZkNotes<cr>", desc = "open a note"},
+		{"<leader>nt", "<cmd>ZkTags<cr>", desc = "open by tag"},
+
+		{"<leader>o", group = "open"},
+		{"<leader>w", "<cmd>edit ~/vimwiki/index.md<cr>", desc = "Vimwiki" },
+		{"<leader>of", group = "fuzzy-find"},
+		{"<leader>ofb", require'telescope.builtin'.buffers, desc = "buffers"},
+		{"<leader>ofc", require'telescope.builtin'.find_files, desc = "in working dir"},
+		{"<leader>ofg", require'telescope.builtin'.live_grep, desc = "grep"},
+		{"<leader>ofh", function ()
+			require'telescope.builtin'.find_files{search_dirs={'~'}}
+		end, desc = "in `~`"},
+		{"<leader>ofr", function ()
+			require'fzf-lua'.files{cwd = '/'}
+		end, desc = "in `/`"},
+		{"<leader>ofv", function ()
+			require'telescope.builtin'.find_files{search_dirs={'/Volumes'}}
+		end, desc = "in `/Volumes`"},
+
+		{"<leader>p", name="project"},
+
+		{"<leader>t", group = "toggle"},
+
+		{"<leader>w", group = "window"},
+		{"<leader>ws", "<cmd>split %<cr>", desc = "split"},
+		{"<leader>wv", "<cmd>vsplit %<cr>", desc = "vsplit"},
+	})
 end
 
 return M
