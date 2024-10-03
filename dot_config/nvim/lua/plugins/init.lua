@@ -66,9 +66,28 @@ return require('lazy').setup{
 		config = function()
 			require'nvim-treesitter.configs'.setup{
 				ensure_installed = {
+					-- Programming languages
 					'lua',
 					'python',
+					'go',
+
+					-- Markup languages
 					'markdown',
+					'latex',
+					'bibtex',
+
+					-- Data description languages
+					'csv',
+					'tsv',
+					'json',
+					'yaml',
+
+					-- Shells
+					'bash',
+
+					-- Git
+					'gitcommit',
+					'gitignore',
 				},
 				highlight = {
 					enable = true,
@@ -129,7 +148,7 @@ return require('lazy').setup{
 
 	{
 		"folke/which-key.nvim",
-		config = require'plugins/whichkey'.setup
+		config = require'plugins/whichkey'.setup,
 	},
 
 	{
