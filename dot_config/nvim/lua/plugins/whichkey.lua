@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
 	local wk = require("which-key")
-	wk.setup{
+	wk.setup {
 	}
 
 	wk.add({
@@ -27,7 +27,7 @@ function M.setup()
 		{"<leader>nt", "<cmd>ZkTags<cr>", desc = "open by tag"},
 
 		{"<leader>o", group = "open"},
-		{"<leader>w", "<cmd>edit ~/vimwiki/index.md<cr>", desc = "Vimwiki" },
+		{"<leader>ow", "<cmd>edit ~/vimwiki/index.md<cr>", desc = "Vimwiki" },
 		{"<leader>of", group = "fuzzy-find"},
 		{"<leader>ofb", require'telescope.builtin'.buffers, desc = "buffers"},
 		{"<leader>ofc", require'telescope.builtin'.find_files, desc = "in working dir"},
