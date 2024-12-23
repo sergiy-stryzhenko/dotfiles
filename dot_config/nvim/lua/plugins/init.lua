@@ -160,6 +160,26 @@ return require('lazy').setup{
 	},
 
 	{
+		"zbirenbaum/copilot.lua",
+		lazy = true,
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function ()
+			require("copilot").setup({
+				suggestion = {enabled = false},
+				panel = {enabled = false},
+			})
+		end
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function ()
+			require("copilot_cmp").setup()
+		end
+	},
+
+	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
 			{ 'williamboman/mason.nvim', config = true },
